@@ -104,9 +104,18 @@ cc_library_shared {
     ],
     aidl: {
         local_include_dirs: ["binder"],
-        include_dirs: ["frameworks/native/aidl/binder"],
+        include_dirs: [
+            "frameworks/native/aidl/binder",
+            "frameworks/base/core/java",
+        ],
         export_aidl_headers: true,
     },
+    whole_static_libs: [
+        "libincremental_aidl-cpp",
+    ],
+    export_shared_lib_headers: [
+        "libbinder",
+    ],
 }
 
 cc_library_headers {
